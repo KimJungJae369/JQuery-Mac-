@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복합대입 연산자</title>
+</head>
+<body>
+
+    <!-- 
+        복합대입 연산자
+        = 연산과 동시에 대입
+        = '산술 연산자'의 축약형
+        = 변수 += 증가값 : 출력값
+        = 출력값이 증가/감소/곱하기/나누기/몫을 낸다
+        = 출력값을 저장하여 다음 변수에  저장한 출력값과 새로운 증감값을 계산하여 출력값을 낸다
+        = 'num += 2 , '<br>' : 다음 메뉴는 '+'보다는 ','가 더 좋다
+        = 변수 (복합대입연산) 증가,감소값 = 출력값
+        ex) 
+            'x = x + 3' -> 'x += 3'으로 간략하게 만든다
+    -->
+
+    <script>
+        var num1 = 5;
+
+        // += 연산자
+        // document.write(num1 += 2, '<br>'); // 출력값 : 7
+        // document.write(num1 += 2, '<br>'); // 출력값 : 9
+        // document.write(num1 += 2, '<br>'); // 출력값 : 11
+        // document.write(num1 += 2, '<br>'); // 출력값 : 13
+        // document.write(num1 += 2, '<br>'); // 출력값 : 15
+
+         // -= 연산자
+        // document.write(num1 -= 2, '<br>'); // 출력값 : 3
+        // document.write(num1 -= 2, '<br>'); // 출력값 : 1
+        // document.write(num1 -= 2, '<br>'); // 출력값 : -1
+        // document.write(num1 -= 2, '<br>'); // 출력값 : -3
+        // document.write(num1 -= 2, '<br>'); // 출력값 : -5
+
+         // *= 연산자
+        // document.write(num1 *= 2, '<br>'); // 출력값 : 10
+        // document.write(num1 *= 2, '<br>'); // 출력값 : 20
+        // document.write(num1 *= 2, '<br>'); // 출력값 : 40
+        // document.write(num1 *= 2, '<br>'); // 출력값 : 80
+        // document.write(num1 *= 2, '<br>'); // 출력값 : 160   
+        
+           // /= 연산자
+          document.write(num1 /= 2, '<br>'); // 출력값 : 2.5
+          document.write(num1 /= 2, '<br>'); // 출력값 : 1.25
+          document.write(num1 /= 2, '<br>'); // 출력값 : 0.625
+          document.write(num1 /= 2, '<br>'); // 출력값 : 0.3125
+          document.write(num1 /= 2, '<br>'); // 출력값 : 0.15625      
+
+         // %= 연산자
+        // document.write(num1 %= 2, '<br>'); // 출력값 : 1
+        // document.write(num1 %= 2, '<br>'); // 출력값 : 1
+        // document.write(num1 %= 2, '<br>'); // 출력값 : 1
+        // document.write(num1 %= 2, '<br>'); // 출력값 : 1
+        // document.write(num1 %= 2, '<br>'); // 출력값 : 1
+
+        
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>논리 연산자</title>
+</head>
+<body>
+
+    <!-- 
+        논리 연산자
+        = 두 개 이상의 변수를 선언하여 비교한다
+    -->
+
+    <script>
+        var num1 = 5;
+        var num3 = 10;
+        var result = num1 < num3
+
+        // &&(and) : 하나라도 'false(거짓)'이면 'false(거짓)'으로 출력 
+        document.write(num1 < num3 && num1 < num3, '<br>'); //출력값 : true 
+        document.write(num1 < num3 && num1 > num3, '<br>'); //출력값 : false
+        
+        // or(||) :  하나라도 'true(참)'이면 'true(참)'으로 출력 
+        document.write(num1 > num3 || num1 > num3, '<br>'); //출력값 : false
+        document.write(num1 < num3 || num1 > num3, '<br>'); // 출력값 : true
+
+        // not(!) : '거짓 -> 참 / 참 -> 거짓'으로 반대로 출력 / 함수에서 부정적 의미
+        document.write(result + '<br>'); // 출력값 : true
+        document.write(!result); // 출력값 : false
+    </script>
+    
+</body>
+</html>
