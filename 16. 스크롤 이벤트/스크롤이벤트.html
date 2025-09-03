@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤이벤트</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.5s ease-in-out;
+        }
+
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: red;
+            text-align: center;
+            font: 500 50px/100px '';
+        }
+
+        section{
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            font: 500 30px/100vh '';
+        }
+
+        .btn_wrap{
+            position: fixed;
+            top: 50%;
+            right: 70px;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        .btn{
+            width: 20px;
+            height: 20px;
+            border: 1px solid white;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .active{
+            background-color: rgb(161, 2, 2);
+        }
+
+        #section_1{background-color: aqua;}
+        #section_2{
+            background-color: blue;
+            position: relative;
+        }
+        #section_2>.title{
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            color: white;
+            line-height: 300px; /* 글자와 박스를 곁치게 하고 글자는 중앙 정렬 */
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+        }
+
+        .active_2{
+            border-radius: 50%;
+        }
+        #section_3{background-color: skyblue;}
+    </style>
+</head>
+<body>
+
+    <script src="js.js"></script>
+
+    <!-- 
+        .scroll() : 스크롤 이벤트를 발생시킨다
+        = 스크롤 이벤트는 스크롤바가 움직일 때마다 발생하는 이벤트
+        = 특정 엘리멘트의 스타일을 변경할 수 있다
+        
+
+        scrollTop : 스크롤바의 수직 위치를 반환하거나 설정한다
+        scrollBottom : 스크롤바의 수직 위치를 반환하거나 설정한다
+        scrollLeft ; 스크롤바의 수평 위치를 반환하거나 설정한다
+        scrollRight : 스크롤바의 수평 위치를 반환하거나 설정한다
+        = 스크롤바의 위치를 반환하는 메서드
+    -->
+
+    <header>header</header>
+
+    <div class="btn_wrap">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+    </div>
+
+    <section id="section_1">섹션_1</section>
+    <section id="section_2">
+        <div class="title active_2">섹션_2</div>
+    </section>
+    <section id="section_3">섹션_3</section>
+
+    <script>
+        $(document).ready(function(){
+            var scr_1 = $('#section_1').height();
+            var scr_2 = $('#section_2'). height();
+            var scr_3 = $('#section_3'). height();
+
+            $(window).scroll(function(){
+                var pageY = $(window).scrollTop();
+
+                if(pageY >= 100){ // 여기서 100px('header'의 높이) 이상 스크롤이 내려갔을 때
+                    $('#section_1').css({ 
+                        backgroundColor: 'black',
+                        color : 'white',
+                    });
+                }else{
+                    $('#section_1').css({ 
+                        backgroundColor: 'blue',
+                        color : 'black',
+                    });
+                }
+            });
+            // 스크롤 이벤트를 발생시켜서 스크롤바가 움직일 때마다 이벤트가 발생하도록 한다
+            // 'section_1'의 배경색과 글자색을 변경한다
+
+            $(window).scroll(function(){
+                var pageR = $(window).scrollTop();
+
+                if(pageR >= 100 + scr_1){
+                    $('.title').addClass('active_2');
+                }else{
+                    $('.title').removeClass('active_2');
+                }
+            });
+            // 스크롤 이벤트를 발생시켜서 스크롤바가 움직일 때마다 이벤트가 발생하도록 한다
+            // 'section_2'의 타이틀에 'active_2' 클래스를 추가하거나 제거한다
+            
+
+            $(window).scroll(function(){
+                var pageE = $(window).scrollTop();
+
+                if(pageE >= 100 + scr_1 + scr_2){ 
+                    $('#section_3').css({ 
+                        backgroundColor: 'black',
+                        color : 'white',
+                    });
+                }else{
+                    $('#section_3').css({ 
+                        backgroundColor: 'skyblue',
+                        color : 'black',
+                    });
+                }
+            });
+            // 스크롤 이벤트를 발생시켜서 스크롤바가 움직일 때마다 이벤트가 발생하도록 한다
+            // 'section_3'의 배경색과 글자색을 변경한다
+
+            $('.btn:nth-child(1)').click(function(){
+                $('html, body').animate({
+                    scrollTop : 100,
+                });
+
+                $('.btn').removeClass('active');
+                $(this).addClass('active');
+            });
+            // 스크롤 이벤트를 발생시켜서 스크롤바가 움직일 때마다 이벤트가 발생하도록 한다
+            // 첫 번째 버튼을 클릭했을 때 스크롤바를 100px 위치로 이동시키고
+            // 모든 버튼에서 'active' 클래스를 제거하고 클릭한 버튼에 'active' 클래스를 추가한다
+
+            $('.btn:nth-child(2)').click(function(){
+                $('html, body').animate({
+                    scrollTop : scr_1 + 100
+                    // 'section_1'의 높이 + 100px 위치로 스크롤바를 이동시킨다
+                });
+
+                $('.btn').removeClass('active');
+                $(this).addClass('active');
+            });
+
+
+            $('.btn:nth-child(3)').click(function(){
+                $('html, body').animate({
+                    scrollTop : scr_1 + scr_2 + 100,
+                    // 'section_1'의 높이 + 'section_2'의 높이 + 100px 위치로 스크롤바를 이동시킨다
+                });
+
+                $('.btn').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+    
+</body>
+</html>

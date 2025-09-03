@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스와이퍼</title>
+    <style>
+        .swiper {
+            width: 600px;
+            height: 300px;
+        }
+
+        .con{
+            background-color: bisque;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide con">Slide 1</div>
+            <div class="swiper-slide con">Slide 2</div>
+            <div class="swiper-slide con">Slide 3</div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+        <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            const swiper = new Swiper('.swiper', {
+            // direction: 'vertical', = 세로(수평) 정렬
+            loop: true,
+
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // scrollbar: {
+            //     el: '.swiper-scrollbar', 화면에 넘치면 자동으로 스크롤바가 생성
+            // },
+
+            autoplay:{
+                delay : 1000
+                // 자동으로 플레이 되도록 설정
+            }
+            });
+        });
+    </script>
+        
+</body>
+</html>

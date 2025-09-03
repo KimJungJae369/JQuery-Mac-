@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        img{width: 100%; display: block;}
+        ul, li{list-style: none;}
+
+        #wrap{
+            width: 1500px;
+            height: 850px;
+            position: relative;
+            margin : 10px auto;
+            border: 1px solid black;
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .img_wrap{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            width: 4500px;
+            height: 100%;
+        }
+
+        #btn_wrap{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom : 20px
+        }
+
+        #btn_wrap li{
+            width: 25px;
+            height: 25px;
+            border: 7px solid orangered;
+            cursor: pointer;
+            border-radius: 50%;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .active{
+            background-color: orangered;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="img_wrap">
+            <img src="https://cdn.pixabay.com/photo/2025/03/18/17/08/dog-9478504_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2016/02/26/16/32/bulldog-1224267_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2021/03/09/14/33/dog-6082017_1280.jpg" alt="img">
+        </div>
+
+        <ul id="btn_wrap">
+            <li class="btn"></li>
+            <li class="btn"></li>
+            <li class="btn"></li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // each() : 차례대로 불러오는 메서드
+            $('.btn').each(function(num){
+            /*
+                'data-num' = 번호표 같은거
+                첫 번째 버튼에는 data-num = 0 사진의 순서
+                두 번째 버튼에는 data-num = 1
+                세 번째 버튼에는 data-num = 2
+            */
+                $(this).attr('date-num', num);
+                // this = .btn
+                // num = 0,1,2
+                // this는 현재 반복문에서 선택된 요소를 의미
+                // num은 반목문에서 현재 인덱스 번호를 의미
+                // this에 data-num 속성을 추가하고 num 값을 할당
+            }).click(function(){
+                var clicked = Number($(this).attr('date-num'));
+                /*
+                    변수를 'clicked'이름을 선언하고 'clicked'값을 .btn의 데이터를 'data-num'값으로 변경
+                */
+
+                $('.img_wrap').animate({
+                    left : -1500 * clicked + 'px',
+                });
+
+                $('.btn').removeClass('active');
+                // 클릭된 버튼을 제외한 모든 버튼에서 'active'클래스를 제거 
+                $('.btn').eq(clicked).addClass('active');
+                // 클릭된 버튼에 'active' 클래스를 추가
+            })
+            $('.btn').eq(0).addClass('active');
+            // 페이지가 로드될떄 첫 번째 버튼에 'active' 클래스를 추가 / 이미 표시되어 있는 상태
+        });
+    </script>
+    
+</body>
+</html>

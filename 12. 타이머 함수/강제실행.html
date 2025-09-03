@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강제실행</title>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <!-- 
+        trigger()
+        = 특정 조건이 충족될 때 "이벤트를 강제 실행"되는 메서드
+        = 문자로 강제 실행 시킬 이벤트명을 작성해주면 된다
+        = 어떠한 이벤트를 찾아서 실행시키는 메서드
+    -->
+    <div class="box"></div>
+
+    <script>
+      $(document).ready(function(){
+
+        $('.box').css({
+          width: '200px',
+          height: '200px',
+          backgroundColor: 'skyblue',
+          margin: '20px auto',
+          textAlign: 'center',
+          lineHeight: '200px',
+          fontSize: '30px',
+          color: '#000'
+        }).click(function(){
+        //   $(this).text('클릭됨');
+        // }).mouseover(function(){ // 마우스 오버(객체 안으로) 이벤트
+        //   $(this).css('backgroundColor', 'orange').text('마우스 오버됨'); 
+        // }).mouseout(function(){ // 마우스 아웃(객체 밖으로) 이벤트
+        //   $(this).css('backgroundColor', 'skyblue').text('');
+        // });
+        // // box 클래스를 가진 요소에 마우스 오버 이벤트를 강제 실행
+        // $('.box').trigger('mouseover');
+
+        // // box 클래스를 가진 요소에 클릭 이벤트를 강제 실행
+        // $('.box').trigger('click');
+
+        // // box 클래스를 가진 요소에 마우스 아웃 이벤트를 강제 실행
+        // $('.box').trigger('mouseout'); 
+          $(this).text('클릭');
+        }).mouseover(function(){
+          $(this).css('backgroundColor','red').text('오버');
+        }).mouseout(function(){
+          $(this).css('backgroundColor','skyblue').text('');
+        });
+
+        // $('.box').trigger('click');
+        // $('.box').trigger('mouseover');
+        $('.box').trigger('mouseout');
+      });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+
+        button{
+            padding: 20px 50px;
+            margin-left: 20px;
+        }
+
+        ul,li{
+            list-style: none;
+        }
+
+        li{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <button>클릭하세요</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+            let num = 0;
+
+            $('button').click(function(){
+                $('li').eq(num).css({
+                    backgroundColor : 'black',
+                    color : 'white',
+                });
+                num++;
+            });
+        });
+    </script>
+    
+</body>
+</html>

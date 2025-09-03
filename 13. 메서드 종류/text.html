@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        *{box-sizing: border-box;}
+        ul, li{
+            list-style: none;
+        }
+        li{
+            padding: 20px;
+            width: 200px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <button>클릭하세요</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+            let num = 0;
+
+            $('button').click(function(){
+                $('li').eq(num).css({
+                    backgroundColor : 'red',
+                });
+                num++;
+                // num번째 li를 빨간색으로 바꾼 다음에 num값을 1을 늘리기 위해서
+                // 배경색을 먼저 바꾸고 그다음 num값을 1을 증가시키기 위해서 마지막에 사용
+            });
+        });
+    </script>
+    
+</body>
+</html>

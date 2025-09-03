@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        section{
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            font: 800 50px/100vh '';
+        }
+
+        header{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            font: 500 30px/100px '';
+            background-color: red;
+        }
+
+        .btn{
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 20px;
+        }
+
+        span{
+            width: 20px;
+            height: 20px;
+            display: block;
+            border: 1px solid gray;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .active{
+            background-color: gray;
+        }
+
+        #sec_1{
+            background-color:lightblue;
+        }
+        #sec_2{
+            background-color: skyblue;
+        }
+        #sec_3{
+            background-color:blue;
+        }
+
+        .title{
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            background-color: aqua;
+            display: inline-block;
+        }
+
+        .active_2{
+            border-radius: 50%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <header>제목 영역</header>
+
+    <div class="btn">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <section id="sec_1">섹션_1</section>
+    <section id="sec_2">
+        <div class="title">섹션_2</div>
+    </section>
+    <section id="sec_3">섹션_3</section>
+    
+    <script>
+        $(document).ready(function(){
+                let sec_1 = $('#sec_1').height();
+                let sec_2 = $('#sec_2').height();
+                let sec_3 = $('#sec_3').height();
+            $(window).scroll(function(){
+                let pageA = $(window).scrollTop();
+
+                if(pageA >= 100){
+                    $('#sec_1').css({
+                        backgroundColor : 'black',
+                        color : 'white',
+                    });
+                }else{
+                    $('#sec_1').css({
+                        backgroundColor : 'lightblue',
+                        color : 'black',
+                    });
+                }
+
+                let pageB = $(window).scrollTop();
+
+                if(pageB >= 100 + sec_1){
+                    $('.title').addClass('active_2');
+                }else{
+                    $('.title').removeClass('active_2');
+                }
+
+                let pageC = $(window).scrollTop();
+
+                if(pageC >= 100 + sec_1 + sec_2){
+                    $('#sec_3').css({
+                        backgroundColor : 'black',
+                        color : 'white',
+                        textShadow : '10px 10px 10px white',
+                    }); 
+                }else{
+                    $('#sec_3').css({
+                        backgroundColor : 'blue',
+                        color : 'black',
+                        textShadow : 'none',
+                    }); 
+                }
+            })
+
+            $('span').eq(0).click(function(){
+                $('html,body').animate({
+                    scrollTop : 100,
+                });
+
+                $('span').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('span').eq(1).click(function(){
+                $('html,body').animate({
+                    scrollTop : 100 + sec_1,
+                });
+
+                $('span').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('span').eq(2).click(function(){
+                $('html,body').animate({
+                    scrollTop : 100 + sec_1 + sec_2,
+                });
+
+                $('span').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+
+</body>
+</html>

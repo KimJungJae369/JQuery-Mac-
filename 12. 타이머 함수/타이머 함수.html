@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 함수</title>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <!-- 
+        타이머 함수
+        = 시간을 제어하는 함수
+        = 이미지 슬라이더에서 일정한 시간마다 이미지가 자동으로 슬라이드 되는 기능을 도와준다
+
+        1.setInterval()
+        = 지정한 시간마다 '계속 실행하는 함수'
+            ex)
+                setInterval(function(){
+                    document.write('코드실행')
+                })
+        
+
+        2. setTimeout()
+        = 지정한 시간 이후 '딱 한번만 실행하는 함수'
+                ex)
+                    setTimeout(function(){
+                        document.write('코드실행')
+                    }) 
+
+        3. clerInterval()
+        = 실행 중인 '타이머 함수를 멈추는 기능'
+    -->
+    
+
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){
+                document.write('1초마다 계속 실행 <br>')
+            }, 1000)
+
+     //       document.write('hr');
+
+       //     setTimeout(function(){
+         //       document.write('한번만 실행');
+           // });
+        });
+    </script>
+</body>
+</html>

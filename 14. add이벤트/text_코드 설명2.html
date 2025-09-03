@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box; margin: 0; padding: 0;}
+        img{width: 100%; display:  block;}
+
+        #wrap{
+            width: 1500px;
+            height: 850px;
+            position: relative;
+            margin: 10px auto;
+            border: 1px solid black;
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .img_wrap{
+            width: 4500px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+        }
+
+        #btn_wrap{
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            list-style: none;
+            display: flex;
+        }
+
+        .btn{
+            width: 20px;
+            cursor: pointer;
+            height: 20px;
+            border: 3px solid orange;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .active{
+            background-color: orangered;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="img_wrap">
+            <img src="https://cdn.pixabay.com/photo/2025/03/18/17/08/dog-9478504_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2016/02/26/16/32/bulldog-1224267_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2021/03/09/14/33/dog-6082017_1280.jpg" alt="img">
+        </div>
+
+        <ul id="btn_wrap">
+            <li class="btn"></li>
+            <li class="btn"></li>
+            <li class="btn"></li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.btn').each(function(num){
+                /*
+                    코드설명_1 
+                    = each() 메서드에서 매개변수를 넣는 이유는 반복문을 통해 처리할 때, 현재 처리 중인 항목에 대한 순서와
+                    해당 항목의 요소를 함께 다룰 수 있도록 하기 위해서
+                    
+                    = num = index은 each()메서드에서는 같은 의미
+                */
+                $(this).attr('date-num', num);
+                /*
+                    코드 설명_2
+                    = '.btn'코드를 순서대로 불러와(each()메서드) 속성의 데이터를 변경하는데(attr()메서드로) 'date-num'으로 인해 각
+                        객체('.btn')에게 순서를 부여
+                    = 'date-num'은 'btn'에게 순서를 부여하는 코드
+                 */
+            }).click(function(){
+                var clicked = Number($(this).attr('date-num'));
+                /*
+                    코드 설명_3
+                    1. .attr('data-num'): .btn 요소에서 data-num 속성의 값을 가져옵니다. 이 값은 문자열 형태
+                    2. Number(): data-num 값이 문자열로 들어오므로, 이를 숫자 형태로 변환하기 위해 Number() 함수를 사용
+                    3. clicked: 변환된 숫자 값을 clicked 변수에 저장
+
+                    this = '.btn'을 의미하지만 여기서는 '.btn'의 이벤트 즉 'click'까지 모두 포함하고 있다
+
+                    요약 
+                    = 'clicked'라는 변수는 .attr() 메서드를 사용하여 data-num 속성의 값을 가져오고, Number() 함수로 숫자로 변환하는 방식
+                    = cicked = '.btn'의 순서의 값 
+                */
+
+                $('.img_wrap').animate({
+                    left : -1500 * clicked + 'px',
+                });
+
+                $('.btn').removeClass('active');
+                $('.btn').eq(clicked).addClass('active');
+            });
+            $('.btn').eq(0).addClass('active');
+        });
+    </script>
+    
+</body>
+</html>

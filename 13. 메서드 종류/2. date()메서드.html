@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>date() 메서드</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+
+        .box[ data-a="color"]{
+            border-radius: 50%;
+        }
+
+        button[ data-a="active"]{
+            background-color: gray;
+            color: red;
+        }
+
+          button[ data-a="inactive"]{
+            background-color: gray;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        2. date-xx
+        = 'data'은 데이터를 다루는 것
+        = 'xx'은 데이터를 어떻게 처리할지
+        = 데이터를 가져와 어떻게 함수의 기능을 처리할지 하는 함수
+        =  'data-xx'값에 정보를 지정하여 자바스크립트에 정보를 넘길때 사용하기도 한다(ex) 네이버 다크모드 등)
+        =  'data-xx'은 문자열로 저장된다
+        = 선택자의 데이터를 변경할 수 있고 '자바스크립트'에서 쉽게 읽고 수정할 수 있다
+    -->
+
+    <div class="box" data-a="color"></div>
+    <div class="box"></div> 
+
+    <button data-a="active">활성</button>
+    <button data-a="inactive">비활성</button>
+    
+</body>
+</html>

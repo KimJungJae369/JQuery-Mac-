@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eq()메서드</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+            margin-bottom: 30px;
+            cursor: pointer;
+            width: 120px;
+            text-align: center;
+            padding: 20px 50px;
+            background-color: gray;
+            border-radius: 50px;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <!-- 
+        eq(index)
+        = 원하는 번째의 자식을 선택할 수 있다
+        = 순서는 'index' 순으로 선택 해야된다
+        = 'index' 순서는 0부터 시작
+        = eq(0) : 첫번째 자식
+        = eq(1) : 두번째 자식
+    -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script>
+        $(document).ready(function(){
+        //   let on = true;
+
+        
+        //     $('li').eq(2).click(function(){
+        //         if(on){
+        //             $(this).css({    this = $('li').eq(2).click(function(){..})
+        //                 backgroundColor : 'black',
+        //                 color : 'white',
+        //             });
+
+        //             on = false;
+        //         }else{
+        //             $(this).css({
+        //                 backgroundColor : 'gray',
+        //                 color : 'black',
+        //             });
+
+        //             on = true;
+        //         }
+        //     });
+            let on = true;
+
+            $('li').eq(3).click(function(){
+                if(on){
+                    $(this).css('backgroundColor','red');
+                    on = false;
+                }else{
+                    $(this).css('backgroundColor','gray');
+                    on = true;
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
