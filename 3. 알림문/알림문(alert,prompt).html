@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림문</title>
+</head>
+<body>
+
+<!-- 
+    1. alert()
+    = 브라우저 상단에 알림창이 뜬다
+    = 경고창 같은게 뜸
+
+    2. prompt()
+    = 'alert'처럼 알림이 뜨지만 사용자(클라이언트)가 내용을 입력할 수 있다
+    = 입력한 값의 타입은 'String(문자열)'으로 반환
+
+    Number()
+    = 문자열을 숫자로 변형
+    = 결과값을 숫자로 대입할 수 있다
+    = 'Number'메서드가 있을 경우 숫자가 아닌 문자열을 넣었을 경우 오류 문자인 'NaN'뜬다
+    = 그렇지 않고 'Number'메서드가 없을 경우 오류도 모르고 입력한 문자 그대로 출력
+
+    String()
+    = 숫자를 문자열로 변형
+    = 결과값을 숫자로 대입할 수 있지만 ''(따옴표)랑 같이 써야한다
+-->
+
+<script>
+    var num = Number(prompt('숫자를 입력해 보세요'));
+    document.write('결과값 : ' + (num + 10));
+</script>
+    
+</body>
+</html>

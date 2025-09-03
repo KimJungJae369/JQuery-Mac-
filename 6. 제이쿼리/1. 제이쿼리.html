@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리</title>
+    <script src="js.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        제이쿼리
+        = 자바스크립트 라이브러리(자주 사용하는 기능(코드)를 모아놓는 것)
+        = 자비스크립트를 좀 더 쉽게 사용할 수 있도록 만든 라이브러리가 제이쿼리
+        
+        제이쿼리 사용방법
+        1. 기본 선택자
+        = $('선택자 명')
+        = 선택자는 css에서 사용하는 모든 선택자 사용 가능하며 
+        = document,window,this 선택자를 따옴표를 제거하고 사용가능
+
+        2. 코드 문법
+        = $('선택자').명령어()
+        = 명령어(메서드 : 선택자에 대한 기능을 수행하는 함수)는 제이쿼리에서 제공하는 기능
+
+        3. css적용
+        = $('선택자').css({실행코드});
+        = 속성중 font-size '-(하이폰)'이 들어간 속성은 '케멜케이스 형식'으로 사용
+        = 케멜케이스 형식 : fontSize
+        = 문자는 따옴표로 감싸서 사용
+    -->
+
+    <div class="box"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('.box').css({
+                width : 300,
+                height : 300,
+                backgroundColor : 'lightgray',
+            });
+        });
+    </script>
+
+
+
+</body>
+</html>

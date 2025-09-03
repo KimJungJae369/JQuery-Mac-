@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+
+    <!-- 
+      중첩for문
+      = for문안에 for문
+      = 첫 for문이 종료되어야 안에 있는 for문이 종료된다
+      = 첫 for문이 종료될 때까지 안에 있는 for문은 계속 작동된다
+    -->
+
+    <script>
+      for(i = 2; i<= 9; i++){
+        document.write(i + '단<br>')
+        for(n = 1; n <= 9; n++){
+          document.write(i + 'X' + n + '=' + (i * n) + '<br>')
+        }
+      }
+    </script>
+</body>
+</html>

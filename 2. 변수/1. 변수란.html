@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수_1</title>
+</head>
+<body>
+
+    <!-- 
+        특정값을 지정 / 숫자,문서,boolemd(특정이름) 다양한 값을 저장
+
+        1. console.log(x)
+        = console.log : 검사창에 확인받고 값을 입력하여 결과를 확인
+
+        2. document.write(x)
+        = document.write : 화면(웹 브라우저)에 출력하고 싶은 값을 입력하여 결과 확인
+
+        3. 변수의 규칙
+        = 변수명은 'class'명 처럼 첫글자는 영어로 작성
+        = 특수문자 '_(언더바)' 또는 '$'만 사용가능
+        = 예약어(이미 '자바스크립트'에서 사용하고 있는 단어(코드))는 불가능
+        = 예약어를 변수명으로 사용하면 오류 발생
+
+        4. 변수란
+        = 정보를 저장할 수 있는 이름을 붙인 메서드
+        = 숫자,문자,리스트 같은 다양한 정보를 넣을 수 있다
+        ex) 
+            let agr = 10;
+            - let : 변수선언(변수를 만들겠다 선언)
+            - agr : 변수명(변수를 담고 있는 정보 이름)
+            - 10 : 변수값
+        = 이렇게 만든 변수의 장점은 다른값(변수의 값)으로 언제든지 변경이 가능하다
+        ex)     
+            age = 11; 변경이 가능하다
+    -->
+
+    <script>
+        var a = 100;
+        var b = 200;
+        var c = a + b;
+
+        document.write(a); // 출력값 : 100
+        document.write('<br>');
+
+        document.write(b); // 출력값 : 200
+        document.write('<br>');
+
+        document.write(c); // 출력값 : 300
+        document.write('<br>');
+
+        a = 990; // 'a'라는 변수값 변경
+        c = a + b; // 'a'값이 '990'으로 변수값이 변경했기 때문에 출력값이 증가해서 출려된다
+        
+        document.write(a); // 출력값 : 990
+        document.write('<br>');
+
+        document.write(b); // 출력값 : 200
+        document.write('<br>');
+
+        document.write(c); // 출력갑 : 1190
+        document.write('<br>');
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+
+    <!-- 
+        조건문(if, else if, else)문
+        = 특정 조건에 만족할 때 까지 실행하는 구문
+        = 조건문은 'if, else, else if'로 구성
+
+        ex) 
+            if(조건1){
+                '조건1'이 '참'일때 실행
+                '조건1'이 '거짓'일떄 다음인 'else if'나 'else'문으로 넘어간다
+            }else if(조건2){
+                '조건2'이 '참'일때 실행
+                '조건2'이 '거짓'일때 다음인 'else'문으로 넘어간다
+            }else{
+                조건이 '참'일때 실행
+                'else if'나 'if'가 거짓일 때 마지막 '참'값으로 실행한다
+                조건'(조건)'은 붙지않고 나머지의 경우의 값을 마지막으로 넣는다
+            }
+    -->
+
+    <script>
+        var num1 = 3;
+        var num2 = 3;
+
+        if(num1 > num2){
+            document.write('num1이 더 크다');
+        }else if(num1 == num2){
+            document.write('두 수는 같습니다')
+        }else{
+            document.write('num2이 더 크다')
+        }
+    </script>
+    
+</body>
+</html>
