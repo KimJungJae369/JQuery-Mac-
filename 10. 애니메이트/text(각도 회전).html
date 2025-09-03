@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+    
+    <script>
+        $(document).ready(function(){
+            let num = 15;
+
+            $('.box').css({
+                width : 500,
+                height : 500,
+                backgroundColor : 'black',
+            }).click(function(){
+                $(this).css({
+                    transform : 'rotate(' + (num += 15) + 'deg)',
+                });
+            });
+        });
+    </script>
+</body>
+</html>

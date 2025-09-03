@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이트</title>
+    <style>
+      *{
+        position: absolute;
+      }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <!-- 
+        애니메이트 
+        = 지정한 시간에 따른 움직임 또는 애니메이션 작업시 사용한다
+        = 애니메이션을 적용할 때는 'animate()'메서드를 사용
+        = 'animate()'메서드는 요소의 css 속성을 변경할 수 있다
+
+        애니메이션 속성
+        1. 크기값 : width,height
+        2. 여백값 : margin,padding
+        3. 위치값 : poaition
+        4. 투명도 : opacity
+        5. 스크롤 : scroll
+    -->
+
+    <div class="box">
+        <div class="item"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+          $('.box').css({
+            width : 300,
+            height : 300,
+            backgroundColor : 'green',
+            margin : '50px auto',
+            position : 'relative',
+          });
+
+          $('.item').css({
+            width : 200,
+            height : 200,
+            backgroundColor : 'black',
+            position : 'absolute',
+          });
+
+          $('.box').click(function(){
+            $('.item').animate({
+              width : 500,
+              height : 500,
+              top : 500,
+              left : 500,
+              opacity : 0.5,
+            }, 800, function(){
+              $(this).animate({
+              width : 200,
+              height : 200,
+              top : 50,
+              left : 50,
+              opacity : 1,
+              });
+            });
+          })
+          
+        });
+    </script>
+
+  
+    
+</body>
+</html>

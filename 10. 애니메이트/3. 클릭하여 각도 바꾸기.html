@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>각도 바꾸기</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div class="box"></div>
+
+    <script>
+        $(document).ready(function(){
+
+            var num = 10; // 클릭 할때 마다 10씩 증가 
+
+            $('.box').click(function(){
+                $(this).css({
+                    transform : 'rotate(' + (num += 10) + 'deg)'
+                    /*
+                        num += 10
+                        = 10씩 증가 시킨다
+                        = 클릭할 때마다 num이 계속 커지고 상자가 계속 회전하게 된다
+                        = +=는 계속 더해준다
+                        = 10 + 10 = 20deg씩 클릭할 때 마다 움직인다
+                        = 한번 클릭 시 20도 부터 돈다
+                    */
+                })
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        img{
+            width: 100%;
+        }
+        
+        #wrap{
+            width: 1500px;
+            height: 900px;
+            position: relative;
+            border: 1px solid black;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 100px;
+        }
+
+        .img_wrap{
+            width: 4500px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+        }
+
+        .arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            text-align: center;
+            font: 500 100px '';
+        }
+
+        .arrow:hover{color: red;}
+
+        .left{left: 20px;}
+        .right{right: 20px;}
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="img_wrap">
+            <img src="https://cdn.pixabay.com/photo/2025/03/18/17/08/dog-9478504_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2016/02/26/16/32/bulldog-1224267_1280.jpg" alt="img">
+            <img src="https://cdn.pixabay.com/photo/2021/03/09/14/33/dog-6082017_1280.jpg" alt="img">
+        </div>
+
+        <div class="arrow left">&lt;</div>
+        <div class="arrow right">&gt;</div>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            let num = 15;
+
+            $('.right').click(function(){
+                num++;
+                if(num > 2){
+                    num = 0
+                }
+                $('.img_wrap').animate({
+                    left : num * -1500,
+                });
+            });
+
+            $('.left').click(function(){
+                num--;
+                if(num < 0){
+                    num = 2
+                }
+                $('.img_wrap').animate({
+                    left : num * -1500,
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #toggle{
+            width: 400px;
+            height: 150px;
+            position: relative;
+            background-color: lightblue;
+            border-radius: 100px;
+            margin: 200px auto;
+            cursor: pointer;
+        }
+
+        .icon{
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    </style>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <div id="toggle">
+        <div class="icon"></div>
+    </div>
+    
+
+    <script>
+        $(document).ready(function(){
+            let on = true;
+
+            $('#toggle').click(function(){
+                if(on){
+                    $('.icon').animate({
+                        left : 260,
+                    });
+                    $('#toggle').css({
+                        backgroundColor : 'skyblue',
+                    });
+                    on = false;
+                }else{
+                    $('.icon').animate({
+                        left : 10,
+                    });
+                    $('#toggle').css({
+                        backgroundColor : 'lightblue',
+                    });
+                    on = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

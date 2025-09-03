@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 범위</title>
+</head>
+<body>
+
+    <!-- 
+        변수의 범위
+        1. 전역변수 : '함수의 밖에서 변수를 선언'할 수 있다
+        = 전 영역에서 사용 할 수 있는 변수로 함수 밖에 변수를 선언하여 만들어진 함수
+
+        2. 지역변수 : '함수 안에서만 변수를 선언'할 수 있다
+        = 함수 내부에서 만들어진 변수를 선언하여 함수 안에서만 사용 가능
+    -->
+
+    <script>
+           let suer = function(){  // 전역변수 : 함수 밖에서 변수를 선언
+            document.write('안녕')
+        }
+        suer();
+
+        document.write('<hr>');
+
+        function name(){
+            var suer2 = '안녕'; // 지역변수 : 함수 내부에서 변수를 선언
+            document.write(suer2);
+        }
+        name();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이벤트 메서드</title>
+    <script src="js.js"></script>
+</head>
+<body>
+
+    <!-- 
+        마우스 이벤트
+        1. mouseenter : 엘리먼트 안에 마우스가 들어갔을 때 이벤트가 발생
+        2. mouseleave : 엘리먼트 밖으로 마우스가 나갔을때 이벤트가 발생
+        3. mousemove : 엘리먼트 안에서 마우스가 움직였을 때 이벤트가 발생
+        4. hover : 엘리먼트에 마우스를 올려 들어가거나 나갔을 때 이벤트가 발생
+        5. mousedown : 엘리먼트에 마우스를 눌렀을 때 
+        6. mouseup : 엘리먼트에 마우스를 뗏을 때
+        7. click : 마우스를 클릭 했을 때
+        8. dblclick : 마우스를 더블 클릭 했을 때
+
+        마우스 이벤트 적용
+        $('선택자').마우스 이벤트(function(){
+            $('선택자').css({
+                실행코드
+            });
+        });
+
+        콜백함수
+        = 함수가 실행되고 난뒤 실행하는 함수
+        = 이벤트가 실행되는 함수
+        = 첫 함수가 끝난 뒤 다음인 두번째 함수가 실행되는 것
+    -->
+
+    <div class="box"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('.box').css({
+                width : 500,
+                height : 500,
+                backgroundColor : 'yellow',
+            }).dblclick(function(){
+                $(this).css({
+                    width : 100,
+                    height : 100,
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

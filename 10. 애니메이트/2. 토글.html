@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토글</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #content{
+            width: 300px;
+            height: 100px;
+            background-color: lightgray;
+            border-radius: 50px;
+            cursor: pointer;
+            margin:  100px auto;
+        }
+
+        .item{
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            left: 5px;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <div class="item"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+              /*
+                let on = true의 사용 
+
+                1. 첫 번째 클릭 후
+                = 'var on = true'로 시작하면, 처음 클릭했을 때 첫 번째 코드 블록이 
+                실행된다 즉, '.item'이 오른쪽으로 이동하고 '#content'의 배경색이 연한
+                분홍색으로 바뀐다
+
+                2. 두 번째 클릭
+                = 첫 번째 클릭이 끝나면 on이 false로 바뀌어요. 이제 상태가 "꺼져 있다"
+                가 된다
+                = 두 번째 클릭을 하면 on이 false이기 때문에 두 번째 코드 블록이 실행
+                 이때 '.item'이 왼쪽으로 돌아가고 '#content'의 배경색이 연한 회색으로
+                  바뀐다 그리고 다시 on이 true로 바뀌죠.
+
+                3. 무한 반복
+                = 이렇게 클릭할 때마다 'on'의 상태가 바뀌면서 두 가지 행동이 번갈아 가며
+                 반복되고  그래서 사용자가 계속 클릭하면 애니메이션과 색상이 계속 바뀌는
+                  무한 반복
+            */
+
+            let on = true; //  전역변수
+
+            $('#content').click(function(){
+                if(on){
+                    $('.item').animate({
+                        left : 200,
+                    }, 600);
+
+                    $('#content').css({
+                        backgroundColor : 'lightgreen',
+                    });
+
+                    on = false;
+                }else{
+                    $('.item').animate({
+                        left : 5,
+                    }, 600);
+
+                    $('#content').css({
+                        backgroundColor : 'lightgray',
+                    });
+
+                    on = true;
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
